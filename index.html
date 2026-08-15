@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+
+    <style>
+        body {
+            background-color: #222;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+        }
+
+        #display {
+            width: 100%;
+            height: 60px;
+            font-size: 30px;
+            text-align: right;
+            margin-bottom: 15p
+          box-sizing: border-box;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            height: 60px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+
+        .operator {
+            background-color: orange;
+            color: white;
+        }
+
+        .equal {
+          
+
+Log in
+Sign up for free
+You said:
+
+git hub
+
+ChatGPT said:
+If you mean GitHub, it's a web-based platform for hosting and collaborating on software projects using Git, a version control system.
+
+GitHub
+
+Some common things you can do with GitHub include:
+
+Store and back up your code in repositories.
+Track changes with Git.
+Collaborate with others using pull requests and code reviews.
+Report and manage bugs with Issues.
+Automate workflows with GitHub Actions.
+Showcase open-source or personal projects.
+If you're new to GitHub, I can help you:
+
+Create a GitHub account.
+Install and set up Git.
+Create your first repository.
+Push your local code to GitHub.
+Explain Git commands (git init, git add, git commit, git push, etc.).
+Teach Git and GitHub from beginner to advanced.
+What would you like to do with GitHub?
+
+
+
+You said:
+
+git hub pa project koi btou
+
+ChatGPT said:
+Bilkul 👍 GitHub par practice ke liye kuch easy aur useful projects:
+
+Personal Portfolio Website — HTML, CSS, JavaScript; apna profile, skills aur projects show karo.
+To-Do List App — JavaScript se tasks add/delete/complete karna.
+Calculator — HTML/CSS/JavaScript se basic calculator.
+Weather App — API use karke city ka current weather dikhana.
+Student Management System — Python/Java/JavaScript mein students ka record manage karna.
+Expense Tracker — income aur expenses add karke total/balance calculate karna.
+Login & Signup System — frontend + backend/database ke saath.
+E-commerce Website — products, cart aur checkout ka demo.
+Agar tum beginner ho, main recommend karunga To-Do List ya Portfolio Website se start karo.
+
+Agar chaho to main tumhe GitHub par already available 5 beginner projects ke links bhi nikal kar de sakta hoon, jinhe tum download karke practice kar sako.
+
+
+
+You said:
+
+make a calculator
+
+ChatGPT said:
+Sure — here is a simple calculator project you can upload to GitHub. It uses HTML, CSS, and JavaScript.
+
+Create a file named index.html and paste this code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e1e2f;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            width: 320px;
+            padding: 20px;
+            background: #2d2d44;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        #display {
+            width: 100%;
+            height: 70px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 12px;
+            background: #171725;
+            color: white;
+            text-align: right;
+            font-size: 32px;
+            outline: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            height: 60px;
+            border: none;
+            border-radius: 12px;
+            background: #44445f;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #5a5a7a;
+        }
+
+        .operator {
+            background: #ff9500;
+        }
+
+        .operator:hover {
+            background: #ffad33;
+        }
+
+        .clear {
+            background: #e63946;
+        }
+
+        .clear:hover {
+            background: #ff5260;
+        }
+
+        .equal {
+            background: #2ecc71;
+        }
+
+        .equal:hover {
+            background: #45e884;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <input type="text" id="display" value="0" readonly>
+
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">⌫</button>
+            <button class="operator" onclick="appendValue('%')">%</button>
+            <button class="operator" onclick="appendValue('/')">÷</button>
+
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button class="operator" onclick="appendValue('*')">×</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="operator" onclick="appendValue('-')">−</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="operator" onclick="appendValue('+')">+</button>
+
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById("display");
+
+        function appendValue(value) {
+            if (display.value === "0" || display.value === "Error") {
+                display.value = value;
+            } else {
+                display.value += value;
+            }
+        }
+
+        function clearDisplay() {
+            display.value = "0";
+        }
+
+        function deleteLast() {
+            if (display.value.length > 1) {
+                display.value = display.value.slice(0, -1);
+            } else {
+                display.value = "0";
+            }
+        }
+
+        function calculate() {
+            try {
+                display.value = Function(
+                    '"use strict"; return (' + display.value + ')'
+                )();
+            } catch {
+                display.value = "Error";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+GitHub par upload karne ka tareeqa
+GitHub par login karo.
+New repository select karo.
+Repository ka naam calculator rakho.
+index.html file create karo.
+Upar wala code paste karo.
+Commit changes karo.
+index.html open karke GitHub Pages se website live bhi kar sakte ho.
+Agar tum chaho, main iska advanced version bhi bana sakta hoon jisme scientific calculator + dark/light mode + keyboard support + calculation history ho.
+
+
+
+You said:
+
+step by step
+
+ChatGPT said:
+Bilkul 👍 Chalo bilkul beginner level se step-by-step Calculator project GitHub par banate hain.
+
+Step 1 — GitHub account
+GitHub open karo aur login/sign up karo.
+
+Step 2 — New Repository banao
+GitHub mein:
+
++ → New repository
+
+Phir:
+
+Repository name: calculator
+Description: My first calculator project
+Public select karo
+Add a README file ko tick kar do
+Create repository click karo.
+Step 3 — File banao
+Repository open hone ke baad:
+
+Add file → Create new file
+
+File ka naam likho:
+
+index.html
+
+Step 4 — Code paste karo
+index.html ke andar calculator ka HTML/CSS/JavaScript code paste karo.
+
+Agar tum chaho, main ab sirf Step 4 ka code tumhe deta hoon aur phir hum ek-ek step complete karte jayenge.
+
+Step 4 ke liye "next" likho.
+
+
+
+You said:
+
+step 4 btou
+
+ChatGPT said:
+Bilkul 👍 Step 4 mein hum index.html ke andar calculator ka code paste karenge.
+
+Step 4 — Code paste karo
+GitHub par jo index.html file banayi hai, uske bade code box mein ye code paste karo:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+
+    <style>
+        body {
+            background-color: #222;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+        }
+
+        #display {
+            width: 100%;
+            height: 60px;
+            font-size: 30px;
+            text-align: right;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            height: 60px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+
+        .operator {
+            background-color: orange;
+            color: white;
+        }
+
+equal 
+      
+
+Log in
+Sign up for free
+You said:
+
+git hub
+
+ChatGPT said:
+If you mean GitHub, it's a web-based platform for hosting and collaborating on software projects using Git, a version control system.
+
+GitHub
+
+Some common things you can do with GitHub include:
+
+Store and back up your code in repositories.
+Track changes with Git.
+Collaborate with others using pull requests and code reviews.
+Report and manage bugs with Issues.
+Automate workflows with GitHub Actions.
+Showcase open-source or personal projects.
+If you're new to GitHub, I can help you:
+
+Create a GitHub account.
+Install and set up Git.
+Create your first repository.
+Push your local code to GitHub.
+Explain Git commands (git init, git add, git commit, git push, etc.).
+Teach Git and GitHub from beginner to advanced.
+What would you like to do with GitHub?
+
+
+
+You said:
+
+git hub pa project koi btou
+
+ChatGPT said:
+Bilkul 👍 GitHub par practice ke liye kuch easy aur useful projects:
+
+Personal Portfolio Website — HTML, CSS, JavaScript; apna profile, skills aur projects show karo.
+To-Do List App — JavaScript se tasks add/delete/complete karna.
+Calculator — HTML/CSS/JavaScript se basic calculator.
+Weather App — API use karke city ka current weather dikhana.
+Student Management System — Python/Java/JavaScript mein students ka record manage karna.
+Expense Tracker — income aur expenses add karke total/balance calculate karna.
+Login & Signup System — frontend + backend/database ke saath.
+E-commerce Website — products, cart aur checkout ka demo.
+Agar tum beginner ho, main recommend karunga To-Do List ya Portfolio Website se start karo.
+
+Agar chaho to main tumhe GitHub par already available 5 beginner projects ke links bhi nikal kar de sakta hoon, jinhe tum download karke practice kar sako.
+
+
+
+You said:
+
+make a calculator
+
+ChatGPT said:
+Sure — here is a simple calculator project you can upload to GitHub. It uses HTML, CSS, and JavaScript.
+
+Create a file named index.html and paste this code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e1e2f;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            width: 320px;
+            padding: 20px;
+            background: #2d2d44;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        #display {
+            width: 100%;
+            height: 70px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 12px;
+            background: #171725;
+            color: white;
+            text-align: right;
+            font-size: 32px;
+            outline: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            height: 60px;
+            border: none;
+            border-radius: 12px;
+            background: #44445f;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #5a5a7a;
+        }
+
+        .operator {
+            background: #ff9500;
+        }
+
+        .operator:hover {
+            background: #ffad33;
+        }
+
+        .clear {
+            background: #e63946;
+        }
+
+        .clear:hover {
+            background: #ff5260;
+        }
+
+        .equal {
+            background: #2ecc71;
+        }
+
+        .equal:hover {
+            background: #45e884;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <input type="text" id="display" value="0" readonly>
+
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">⌫</button>
+            <button class="operator" onclick="appendValue('%')">%</button>
+            <button class="operator" onclick="appendValue('/')">÷</button>
+
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button class="operator" onclick="appendValue('*')">×</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="operator" onclick="appendValue('-')">−</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="operator" onclick="appendValue('+')">+</button>
+
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById("display");
+
+        function appendValue(value) {
+            if (display.value === "0" || display.value === "Error") {
+                display.value = value;
+            } else {
+                display.value += value;
+            }
+        }
+
+        function clearDisplay() {
+            display.value = "0";
+        }
+
+        function deleteLast() {
+            if (display.value.length > 1) {
+                display.value = display.value.slice(0, -1);
+            } else {
+                display.value = "0";
+            }
+        }
+
+        function calculate() {
+            try {
+                display.value = Function(
+                    '"use strict"; return (' + display.value + ')'
+                )();
+            } catch {
+                display.value = "Error";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+GitHub par upload karne ka tareeqa
+GitHub par login karo.
+New repository select karo.
+Repository ka naam calculator rakho.
+index.html file create karo.
+Upar wala code paste karo.
+Commit changes karo.
+index.html open karke GitHub Pages se website live bhi kar sakte ho.
+Agar tum chaho, main iska advanced version bhi bana sakta hoon jisme scientific calculator + dark/light mode + keyboard support + calculation history ho.
+
+
+
+You said:
+
+step by step
+
+ChatGPT said:
+Bilkul 👍 Chalo bilkul beginner level se step-by-step Calculator project GitHub par banate hain.
+
+Step 1 — GitHub account
+GitHub open karo aur login/sign up karo.
+
+Step 2 — New Repository banao
+GitHub mein:
+
++ → New repository
+
+Phir:
+
+Repository name: calculator
+Description: My first calculator project
+Public select karo
+Add a README file ko tick kar do
+Create repository click karo.
+Step 3 — File banao
+Repository open hone ke baad:
+
+Add file → Create new file
+
+File ka naam likho:
+
+index.html
+
+Step 4 — Code paste karo
+index.html ke andar calculator ka HTML/CSS/JavaScript code paste karo.
+
+Agar tum chaho, main ab sirf Step 4 ka code tumhe deta hoon aur phir hum ek-ek step complete karte jayenge.
+
+Step 4 ke liye "next" likho.
+
+
+
+You said:
+
+step 4 btou
+
+ChatGPT said:
+Bilkul 👍 Step 4 mein hum index.html ke andar calculator ka code paste karenge.
+
+Step 4 — Code paste karo
+GitHub par jo index.html file banayi hai, uske bade code box mein ye code paste karo:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+
+    <style>
+        body {
+            background-color: #222;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+        }
+
+        #display {
+            width: 100%;
+            height: 60px;
+            font-size: 30px;
+            text-align: right;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: grid;
+            grid-tem.plate-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            height: 60px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+
+        .operator {
+            background-color: orange;
+            color: white;
+        }
+
+  .equal {
+     background-color: green;
+            color: white;
+        }
+
+        .clear {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <input type="text" id="display" value="0" readonly>
+
+        <div class="buttons">
+
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="deleteNumber()">⌫</button>
+            <button class="operator" onclick="addNumber('%')">%</button>
+            <button class="operator" onclick="addNumber('/')">÷</button>
+
+            <button onclick="addNumber('7')">7</button>
+            <button onclick="addNumber('8')">8</button>
+            <button onclick="addNumber('9')">9</button>
+            <button class="operator" onclick="addNumber('*')">×</button>
+
+            <button onclick="addNumber('4')">4</button>
+          <button onclick="addNumber('4')">4</button>
+            <button onclick="addNumber('5')">5</button>
+            <button onclick="addNumber('6')">6</button>
+            <button class="operator" onclick="addNumber('-')">−</button>
+
+            <button onclick="addNumber('1')">1</button>
+            <button onclick="addNumber('2')">2</button>
+            <button onclick="addNumber('3')">3</button>
+            <button class="operator" onclick="addNumber('+')">+</button>
+
+            <button onclick="addNumber('0')">0</button>
+            <button onclick="addNumber('.')">.</button>
+            <button class="equal" onclick="calculate()">=</button>
+
+        </div>
+    </div>
+
+    <script>
+
+        let display = document.getElementById("display");
+
+        function addNumber(number) {
+            if (display.value === "0") {
+                display.value = number;
+            } else {
+                display.value += number;
+            }
+        }
+      function clearDisplay() {
+            display.value = "0";
+        }
+
+        function deleteNumber() {
+            if (display.value.length > 1) {
+                display.value = display.value.slice(0, -1);
+            } else {
+                display.value = "0";
+            }
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Error";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+
+            
+          
